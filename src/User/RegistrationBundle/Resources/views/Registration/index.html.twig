@@ -1,0 +1,72 @@
+{% extends "BlogBundle::tablebox_layout.html.twig"%}
+
+{%block content%}
+    {% form_theme form 'form_table_layout.html.twig' %}
+<table><tr><td>{{form_errors(form.email)}}</td></tr></table>
+    {{form(form)}}
+{%endblock%}
+
+
+{#
+ <table>
+            <tr><td colspan="2">{{ form_errors(form.email) }}{{ form_errors(form)}}</td></tr>
+            <tr><td colspan="2">{{form_widget(form._token)}}</td></tr>
+        <tr>
+                <td>
+                    {{form_label(form.email,'*Email:')}}
+                </td>
+                <td>
+                    {{form_widget(form.email)}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{form_label(form.password.first,'*Password:')}}
+                </td>
+                <td>
+                    {{form_widget(form.password.first)}}
+                        
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{form_label(form.password.second,'*Conform Password:')}}
+                </td>
+                <td>
+                    {{form_widget(form.password.second)}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form_label(form.firstname, '*First Name:') }}
+                </td>
+                <td>
+                    {{ form_widget(form.firstname) }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form_label(form.lastname, '*Last Name:') }}
+                </td>
+                <td>
+                    {{ form_widget(form.lastname) }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form_label(form.address, '*Address:') }}
+                </td>
+                <td>
+                    {{ form_widget(form.address) }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form_label(form.gender, '*Gender:') }}
+                </td>
+                <td>
+                    {{ form_widget(form.gender) }}
+                </td>
+            </tr> 
+            <tr><td colspan="2"><input type="submit" value="{%if header_name == 'Registration'  %}Registration{%else%}Save{%endif%}"/></td></tr>
+        </table>#}

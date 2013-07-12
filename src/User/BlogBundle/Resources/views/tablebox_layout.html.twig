@@ -1,0 +1,32 @@
+{% extends "BlogBundle::layout.html.twig"%}
+
+{% block body %}
+<h3 style="color: #6d76b3 !important">{% if app.session.get('currentUser') %}Welcome, {{ app.session.get('currentUser').getFirstName() }} {{ app.session.get('currentUser').getLastName() }}{% endif %}</h3>
+   <center>
+        <div class="row-fluid sortable ui-sortable" style=' width:50% '>
+                <div class="box span12">
+
+                        <div class='box-header well'>
+                            <h2>{% if header_name is defined %}{{ header_name }} {% endif %}</h2>
+                                <div class="box-icon">
+                                        <a class="btn btn-setting btn-round" href="#">
+                                                <i class="icon-cog"></i>
+                                        </a>
+                                        <a class="btn btn-minimize btn-round" href="#">
+                                                <i class="icon-chevron-up"></i>
+                                        </a>
+                                        <a class="btn btn-close btn-round" href="#">
+                                                <i class="icon-remove"></i>
+                                        </a>
+                                </div>
+                        </div>
+
+                        <div class="box-content">
+                                {% block content %}
+                                    
+                                {% endblock content %}
+                        </div>
+                </div>
+        </div>
+  </center>
+{% endblock %}

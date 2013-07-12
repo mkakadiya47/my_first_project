@@ -1,0 +1,22 @@
+{% for post in posts %}
+    <center>
+            <div class="row-fluid sortable ui-sortable" style=' width:50% '>
+                    <div class="box span12">
+
+                            <div class="box-header well">
+                                <h2>{{ post.getUser()}}</h2>
+                                 <div class="box-icon">
+                                     <p style="font-size: x-small !important; width:">{% if post.createdAt()|date('Y') != 'now'|date('Y')%}{{ post.createdAt()|date('F jS Y \\a\\t g:ia') }} {%elseif post.createdAt()|date('m/d/y') == 'now'|date('m/d/y') %} <font style="color: #625e43"> {{ post.createdAt|date("g:ia") }} </font> {% else %} <font style="color: #625e43"> {{ post.createdAt|date("F jS \\a\\t g:ia") }} </font> {% endif %}</p>
+                                </div>
+                            </div>
+
+                            <div class="box-content">
+                                    {% block content %}
+                                        {{ post.getTitle()|raw }}
+                                        {{ post.getContent()|raw }}
+                                    {% endblock %}
+                            </div>
+                    </div>
+            </div>
+      </center>
+{% endfor %}

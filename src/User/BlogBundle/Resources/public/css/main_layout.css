@@ -1,0 +1,89 @@
+.divheaderclass
+{
+    width: 100%;
+    height: 100px;
+    background: #0e90d2;
+    
+}
+
+.linkmenu a
+{
+    color: white !important;
+    font-size: 15px;
+}
+.linkmenu
+{
+    float: right;
+    text-align: right;
+    margin-right: 50px;
+    width: 100%;
+    height: 20px;
+    padding-top: 75px;
+}
+
+.divfooterclass
+{
+    
+    position: inherit;
+    width: 100%;
+    height: 100px;
+    background: #0e90d2;
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    font-size: large;
+    
+}
+
+body {
+   margin:0;
+   padding:0;
+   height:100%;
+}
+#container {
+   min-height:94%;
+   position:relative;
+}
+#header {
+   background:#ff0;
+   padding:10px;
+}
+#body {
+   padding:10px;
+   padding-bottom:60px;   /* Height of the footer */
+}
+
+/*user error or user information*/
+
+.notice
+{
+    color: #499249;
+}
+.error
+{
+    color: tomato;
+}
+.userNoticeError
+{
+  height: 20px;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+.backgroundofposttableboxlayout
+{
+    background-color: wheat;
+}
+.userFormDivClass
+{
+    position: absolute;
+    width: 600px;
+    height: auto;
+    top: 100px;
+    background-color:white;
+    z-index: 2000;
+    display: none;
+    right: 350px;
+    
+}
+
+

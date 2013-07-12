@@ -1,0 +1,29 @@
+#src/RegistrationBundle/Resources/config/routing.yml
+
+user_registration_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: UserRegistrationBundle:Default:index }
+
+edit_profile:
+    pattern:  /member/editProfile
+    defaults: { _controller: UserRegistrationBundle:Registration:editProfile}
+ 
+logout:
+    pattern: /logout
+    defaults: { _controller: UserRegistrationBundle:Registration:logout }
+
+change_user_password:
+    pattern:  /member/changePassword
+    defaults: { _controller: UserRegistrationBundle:Registration:changePassword }
+    
+conform_email:
+    pattern:    /confirm/email/{token}
+    defaults:   { _controller: UserRegistrationBundle:Registration:confirmEmail }
+
+registration:
+    path: /
+    defaults: { _controller: UserRegistrationBundle:Registration:index }
+    
+login:
+    path: /login
+    defaults: { _controller: UserRegistrationBundle:Registration:login }

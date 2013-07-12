@@ -1,0 +1,78 @@
+{% extends "BlogBundle::post_tablebox_layout.html.twig"%}
+{% block stylesheet%}
+{%endblock%}
+
+{%block content%}
+    
+    <form onSubmit="return postData();"  method="post" {{ form_enctype(form) }}  class="AddUserForm" id="AddUserForm" >
+        <table>
+            <tr><td> {{ form_errors(form) }}</td></tr>
+            <tr>
+                <td>
+                    {{ form_label(form.title, '*Title:') }}
+                </td>
+                <td>
+                    {{ form_widget(form.title) }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{ form_label(form.content, '*Content:') }}
+                </td>
+                <td>
+                    {{ form_widget(form.content) }}
+                </td>
+           </tr>
+           
+        </table>
+
+    <input type="submit" value="Post" id="submitbutton" />
+</form>
+
+<script>
+    function postData()
+    {
+        var postdata = $("#AddUserForm").serialize();
+        $.ajax({
+            url: "{{ path('post') }}",
+            type: 'post',
+            data:   postdata,
+            success: function ( data ) {
+               $("#userFormDivId").hide();
+            }
+        });
+        
+        $.ajax({   
+                type: 'GET', 
+                url: "{{ url('get_user_post') }}",   
+                success: function(msg) {
+                    $(this).bind('click');
+                    $("#fill_user_post").html(msg);
+                }
+            });
+        return false;
+    }
+    $('#btncloseid1').click(function(){$('#userFormDivId').hide('slow');});
+    $('#btncloseid2').click(function(){$('#userFormDivId').hide('slow');});
+    $('#btncloseid3').click(function(){$('#userFormDivId').hide('slow');});
+    /*$('#submitbutton').click(function(){
+       alert('hello');
+        $.ajax({
+            url: "{{ path('post') }}",
+            type: 'POST',
+            success: function ( data ) {
+               if(data)
+               {
+                   $("#userFormDivId").hide();
+                   
+               }
+                    
+            }
+        });*/
+        
+  
+     
+</script>
+{%endblock%}
+
+

@@ -1,0 +1,72 @@
+
+.box-header {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%) repeat scroll 0 0 transparent;
+    border-color: -moz-use-text-color -moz-use-text-color #DEDEDE;
+    border-image: none;
+    border-radius: 3px 3px 0 0;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    cursor: move;
+    font-size: 16px;
+    font-weight: bold;
+    height: 12px;
+    margin-bottom: 0;
+    min-height: 12px;
+    padding-top: 5px;
+}
+.box-header {
+    cursor: move;
+    font-size: 16px;
+    font-weight: bold;
+}
+.box-header h2 {
+    clear: none;
+    float: left;
+    font-size: 15px;
+    line-height: 25px;
+    width: auto;
+}
+
+.box-content {
+    padding: 10px;
+}
+
+
+/*for a icon*/
+.box-icon {
+    float: right;
+}
+.btn-round {
+    border-radius: 40px 40px 40px 40px;
+    font-size: 12px;
+    padding-top: 4px;
+}
+.box-icon a {
+    clear: none;
+    float: left;
+    height: 18px;
+    margin: -1px 2px 0;
+    width: 5px;
+}
+.btn {
+    background-color: #FFFFFF;
+    background-image: linear-gradient(#FFFFFF, #FFFFFF 5%, #FFFFFF);
+    background-repeat: no-repeat;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset, 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.btn {
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+}
+/*end icon*/
+
+.box {
+    border: 1px solid #DEDEDE;
+    border-radius: 3px 3px 3px 3px;
+    box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

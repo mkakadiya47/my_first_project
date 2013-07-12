@@ -1,0 +1,35 @@
+{% extends "BlogBundle::tablebox_layout.html.twig"%}
+
+{%block content%}
+    <table>
+        <tr>
+            <td>
+                {%block notice %} {{parent()}}{% endblock %}
+            </td>
+        </tr>
+    </table>
+<form action="{{ path('login') }}" method="post" {{ form_enctype(form) }} class="AddUserForm">
+    
+        <table>
+            <tr><td colspan="2">{{ form_errors(form) }}</td></tr>
+            <tr><td colspan="2">{{form_widget(form._token)}}</td></tr>
+            <tr>
+                <td>
+                    {{form_label(form.email,'*Email:')}}
+                </td>
+                <td>
+                    {{form_widget(form.email)}}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    {{form_label(form.password,'*Password:')}}
+                </td>
+                <td>
+                    {{form_widget(form.password)}}
+                </td>
+            </tr>
+            <tr><td colspan="2" align="center"><input type="submit" value="Login"/></td></tr>
+        </table>
+</form>
+{%endblock%}

@@ -1,0 +1,13 @@
+#src/BlogBundle/Resources/config/routing.yml
+
+blog_homepage:
+    pattern:  /member/
+    defaults: { _controller: BlogBundle:Blog:index }
+
+get_user_post:
+      pattern:  /member/getUserPost
+      defaults: { _controller: BlogBundle:Blog:postList }
+
+post:
+    path: /member/post
+    defaults: { _controller: BlogBundle:Blog:post }

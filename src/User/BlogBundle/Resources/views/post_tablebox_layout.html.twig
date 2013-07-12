@@ -1,0 +1,31 @@
+{% block body %}
+   <center>
+       <div class="">
+        <div class="row-fluid sortable ui-sortable" style=' width:100% '>
+                <div class="box span12 backgroundofposttableboxlayout">
+
+                        <div class='box-header well'>
+                            <h2>{% if header_name is defined %}{{ header_name }} {% endif %}</h2>
+                                <div class="box-icon">
+                                        <a class="btn btn-setting btn-round" href="#" id="btncloseid1">
+                                                <i class="icon-cog"></i>
+                                        </a>
+                                        <a class="btn btn-minimize btn-round" href="#" id="btncloseid2">
+                                                <i class="icon-chevron-up"></i>
+                                        </a>
+                                        <a class="btn btn-close btn-round" href="#" id="btncloseid3">
+                                                <i class="icon-remove"></i>
+                                        </a>
+                                </div>
+                        </div>
+
+                        <div class="box-content">
+                                {% block content %}
+                                    
+                                {% endblock content %}
+                        </div>
+                </div>
+        </div>
+               </div>
+  </center>
+{% endblock %}

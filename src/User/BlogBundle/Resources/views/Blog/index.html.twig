@@ -1,0 +1,61 @@
+{% extends "BlogBundle::layout.html.twig"%}
+
+{% block body %}
+    <h3 style="color: #6d76b3 !important">{% if app.session.get('currentUser') %}Welcome, {{ app.session.get('currentUser').getFirstName() }} {{ app.session.get('currentUser').getLastName() }}{% endif %}</h3>
+    <div id="fill_user_post">
+    </div>
+    <script>
+        
+        $().ready(function(){
+            $.ajax({   
+                type: 'GET', 
+                url: "{{ url('get_user_post') }}",   
+                success: function(msg) {
+                    $(this).bind('click');
+                    $("#fill_user_post").html(msg);
+                }
+            });
+        });
+        
+        function Ajax(){
+            var xmlHttp;
+                    try{	
+                            xmlHttp=new XMLHttpRequest();// Firefox, Opera 8.0+, Safari
+                    }
+                    catch (e){
+                            try{
+                                    xmlHttp=new ActiveXObject("Msxml2.XMLHTTP"); // Internet Explorer
+                            }
+                            catch (e){
+                                try{
+                                            xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+                                    }
+                                    catch (e){
+                                            alert("No AJAX!?");
+                                            return false;
+                                    }
+                            }
+                    }
+
+            xmlHttp.onreadystatechange=function(){
+                    if(xmlHttp.readyState==4){
+                            if(xmlHttp.responseText=='false')
+                                {
+                                    location.reload();
+                                }
+                            document.getElementById('fill_user_post').innerHTML=xmlHttp.responseText;
+                            setTimeout('Ajax()',10000);
+                    }
+            }
+            xmlHttp.open("GET","{{url('get_user_post')}}",true);
+            xmlHttp.send(null);
+            }
+
+            window.onload=function(){
+                    setTimeout('Ajax()',10000);
+            }
+    </script>
+{% endblock %}
+
+
+ 

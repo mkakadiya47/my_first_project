@@ -1,0 +1,74 @@
+{#user/blogbundle/resourse/layout.html.twig#}
+{% stylesheets '@BlogBundle/Resources/public/css/*' filter="cssrewrite" %}
+        <link rel="stylesheet" type="text/css" media="screen" href="{{ asset_url }}" />
+{% endstylesheets %}
+{% javascripts '@BlogBundle/Resources/public/js/jquery.js' %}
+    <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+    
+<html>
+    <head>
+        <title>{% block title%} Welcome {%endblock%}</title>
+        <style type="text/css">
+                {% block stylesheet%}{%endblock%}
+        </style>
+    </head>
+    <body>
+                <div id='container'>
+            <div class='divheaderclass'>
+                <div class='linkmenu'>
+                    {%if app.session.get('currentUser')%}
+                        <a href="{{url('blog_homepage')}}">Home</a> ||
+                        <a href="#" id="apost">Post</a>  ||
+                        <a href="{{url('edit_profile')}}">Edit Profile</a> ||
+                        <a href="{{url('change_user_password')}}">Change Password</a>||
+                        <a href="{{url('logout')}}">Logout</a>  
+                    {%else%}
+                        <a href="{{url('login')}}">Login</a>  ||
+                        <a href="{{url('registration')}}">Registration</a>
+                    {%endif%}
+                </div>
+            </div>
+            <div class="userNoticeError">
+                
+                {%block notice %}
+                    {% for key, messages in app.session.flashbag.all() %}
+                        <div class="{{ key }}">
+                            {% for message in messages %}
+                                <marquee behavior="alternate" direction="right" scrollamount="4">
+                                    {{ message }}
+                                </marquee>
+                            {% endfor %}
+                       </div>
+                   {% endfor %}
+               {% endblock notice%}
+            </div>
+            <div class="blockbody">
+                {% block body %}
+                    
+                {% endblock%}
+            </div>
+            <div class="divfooterclass" id='footer'>
+                &copy; Copyright 2013
+            </div>
+        </div>
+            
+        <div id="userFormDivId" class="userFormDivClass"></div>
+    </body>
+</html>
+
+<script>
+    $('#apost').click( function() {
+        $('#userFormDivId').show('slow','linear',function showNext(){
+                    $.ajax({
+                        url: "{{ path('post') }}",
+                        success: function ( data ) {
+                             $('#userFormDivId').html(data);
+                        }
+                    });
+            });
+    } );
+    $('#userFormDivId').hide();
+    
+    //$('body').click(function(){$('#userFormDivId').hide('slow');});
+</script>
